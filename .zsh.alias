@@ -22,4 +22,4 @@ alias get='yaourt --noconfirm'
 alias pdf='apvlv'
 alias clip='xclip -selection clipboard'
 
-source $(which virtualenvwrapper.sh)
+#source $(which virtualenvwrapper.sh)
