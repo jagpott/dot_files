@@ -53,7 +53,7 @@ source ~/.zsh.export
 
 #eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
 #eval $(dircolors ~/.dircolors);
-PATH=$PATH:/home/julian/.gem/ruby/2.1.0/bin
+#PATH=$PATH:/home/julian/.gem/ruby/2.1.0/bin
 export PATH
 
 
