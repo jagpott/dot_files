@@ -27,8 +27,8 @@ bindsym $mod+shift+a scratchpad show
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym XF86Launch1 exec i3-sensible-terminal
-bindsym $mod+Return exec gnome-terminal
-bindsym XF86Launch1 exec gnome-terminal
+bindsym $mod+Return exec termite
+bindsym XF86Launch1 exec termite
 bindsym $mod+Shift+Return exec thunar
 bindsym Shift+XF86Launch1 exec thunar
 #lock screen
