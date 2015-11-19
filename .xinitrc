@@ -2,5 +2,5 @@
 setxkbmap -layout custom -variant julian -option caps:escape
 xset r rate 160 55
 pulseaudio --start
-feh --bg-scale /home/jan/Bilder/Wallpapers/hintergrund.png
+feh --bg-scale /home/jan/Bilder/Wallpapers/hintergrund.jpg
 exec i3
