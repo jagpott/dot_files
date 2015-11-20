@@ -5,10 +5,17 @@ alias fuck='sudo pacman -Rsnv'
 alias svim='sudo vim'
 alias nc='sudo netctl'
 alias wifi-menu='sudo wifi-menu'
-alias wlan='sudo systemctl restart netctl-auto@wlp5s0.service'
+alias wlan='sudo systemctl restart netctl-auto@wlp4s0.service'
+alias wlan='sudo systemctl restart dhcpcd@enp0s25.service'
 alias mnt='sudo mount'
+
+# user aliases
 alias dafuq='journalctl -xrb'
 alias wtf='dmesg -eHwT'
+alias dot='cd /home/jan/git/dotfiles'
+alias dev='cd /home/jan/git/dev_open/open3-dev'
+alias ext='cd /home/jan/git/ext_open/open3-dev'
+
 # git aliases
 alias gls='git status'
 alias glg='git lg'
@@ -17,6 +24,7 @@ alias glc='git commit -m'
 alias doch='sudo $(fc -ln -1)'
 alias spaceleft='df -h'
 alias get='yaourt --noconfirm'
+alias actcom='git rev-parse HEAD'
 
 # other tools
 alias pdf='apvlv'

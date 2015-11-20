@@ -44,6 +44,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git zsh-syntax-highlighting colored-man cp)
 
+export Term=xterm
+
 #source $ZSH/oh-my-zsh.sh
 source $ZSH/oh-my-zsh.sh
 
@@ -54,7 +56,6 @@ source ~/.zsh.export
 #eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
 #eval $(dircolors ~/.dircolors);
 PATH=$PATH:/home/julian/.gem/ruby/2.1.0/bin
-export Term=xterm
 export PATH
 
 

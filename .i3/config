@@ -247,7 +247,6 @@ bar {
 }
 
 #assign programs to certain worksapce
-assign [class="^Firefox$"] 1: www
 assign [class="^Chromium$"] 1: www
 assign [class="^Thunderbird$"] 2: mail
 assign [class="^Pidgin$"] 9
@@ -255,8 +254,8 @@ for_window [class=^Firefox$" instance="^Download$"] floating enable
 assign [class="^Nitrotasks$"] 0: todo
 
 #autostart
+exec --no-startup-id termite
 exec --no-startup-id nitrotasks
-exec --no-startup-id pidgin
 exec --no-startup-id chromium
 exec --no-startup-id thunderbird
 exec --no-startup-id /usr/libexec/xscreensaver-autostart
