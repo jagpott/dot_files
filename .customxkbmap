@@ -1566,11 +1566,11 @@ partial alphanumeric_keys
 
 
 partial alphanumeric_keys
-xkb_symbols "julian" {
+xkb_symbols "jan" {
 
     include "latin"
 
-        name[Group1]="Julian";
+        name[Group1]="Jan";
 
     key <AD02>  { [         w,          W,           ae,           AE ] };
     key <AD03>  { [         e,          E,     EuroSign,     EuroSign ] };
