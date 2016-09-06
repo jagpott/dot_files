@@ -51,7 +51,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source ~/.zsh.alias
+source ~/.zsh.import
 source ~/.zsh.export
+source /etc/profile.d/autojump.sh
 
 #eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
 #eval $(dircolors ~/.dircolors);

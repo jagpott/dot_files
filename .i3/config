@@ -7,6 +7,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $lockQuery i3lock -c fff00 -n
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -32,7 +33,7 @@ bindsym XF86Launch1 exec termite
 bindsym $mod+Shift+Return exec thunar
 bindsym Shift+XF86Launch1 exec thunar
 #lock screen
-#bindsym $mod+BackSpace exec i3lock -c 555555
+bindsym $mod+BackSpace exec i3lock -c ffff00 -i ~/Bilder/hintergrund.png -n
 # kill focused window
 bindsym $mod+q kill
 
@@ -44,8 +45,7 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-# bindsym $mod+l focus right
-bindsym $mod+l exec lock
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -91,26 +91,26 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+grave workspace 0: todo
 bindsym $mod+1 workspace 1: www
 bindsym $mod+2 workspace 2: mail
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace 3: dev
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace 9: tele
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+asciitilde move container to workspace 0: todo
 bindsym $mod+Shift+1 move container to workspace 1: www
 bindsym $mod+Shift+2 move container to workspace 2: mail
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+3 move container to workspace 3: dev
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+9 move container to workspace 9: tele
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
@@ -231,10 +231,11 @@ bindsym Print exec gnome-screenshot -i
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+#tray_output none
         status_command i3status
         position top
-        font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-        #font pango:Sans Mono, Terminus Semi-Condensed 10
+        #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+        font pango:Sans Mono, Terminus Semi-Condensed 10
         colors {
             background #333333
             statusline #FFFFFF
@@ -249,8 +250,12 @@ bar {
 #assign programs to certain worksapce
 assign [class="^Chromium$"] 1: www
 assign [class="^Thunderbird$"] 2: mail
-assign [class="^Pidgin$"] 9
-for_window [class=^Firefox$" instance="^Download$"] floating enable
+assign [class="^Subl3$"] 3: dev
+assign [class="^Pidgin$"] 9: tele
+assign [class="^Telegram$"] 9: tele
+assign [class="^Skype$"] 9: tele
+assign [class="^Spotify$"] 9: tele
+for_window [class="^Chromium$" instance="^Download$"] floating enable
 assign [class="^Nitrotasks$"] 0: todo
 
 #autostart
@@ -258,8 +263,24 @@ exec --no-startup-id termite
 exec --no-startup-id nitrotasks
 exec --no-startup-id chromium
 exec --no-startup-id thunderbird
+exec --no-startup-id subl3
 exec --no-startup-id /usr/libexec/xscreensaver-autostart
 exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
 exec --no-startup-id redshift -t 3500:3500
 
+#startup for multiple monitor @work
+exec --no-startup-id xrandr --addmode HDMI1 1920x1080 --addmode DP2 1920x1080
+exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate left
+exec --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080 --pos 1080x840 --rotate normal
+exec --no-startup-id xrandr --output DP2 --mode 1920x1080 --pos 3000x840 --rotate normal
+
+workspace "0: todo" output eDP1
+workspace "1: www" output eDP1
+workspace "2: mail" output eDP1
+workspace "3: dev" output DP2
+workspace 4 output HDMI1
+workspace "9: tele" output DP2
+
 new_window none
+
+gaps inner 10
