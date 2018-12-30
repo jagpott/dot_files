@@ -42,7 +42,12 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting colored-man cp)
+plugins=(
+    git
+    zsh-syntax-highlighting
+    colored-man
+    cp
+)
 
 export Term=xterm
 
@@ -50,24 +55,10 @@ export Term=xterm
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-source ~/.zsh.alias
-source ~/.zsh.import
-source ~/.zsh.export
+source ~/.zsh_aliases
+source ~/.zsh_import
+source ~/.zsh_export
 source /etc/profile.d/autojump.sh
 
 #eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
 #eval $(dircolors ~/.dircolors);
-PATH=$PATH:/home/julian/.gem/ruby/2.1.0/bin
-export PATH
-
-
-
-
-
-
-
-
-
-
-
-
