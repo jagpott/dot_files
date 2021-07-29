@@ -46,7 +46,6 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 plugins=(
     git
     zsh-syntax-highlighting
-    colored-man
     cp
 )
 
@@ -63,3 +62,4 @@ source /etc/profile.d/autojump.sh
 
 #eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)
 #eval $(dircolors ~/.dircolors);
+tabs 4

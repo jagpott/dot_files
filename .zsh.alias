@@ -1,5 +1,10 @@
 # sudo aliases
+alias jctl='sudo journalctl'
 alias sc='sudo systemctl'
+alias scss='sudo systemctl status'
+alias scrst='sudo systemctl restart'
+alias scsp='sudo systemctl stop'
+alias scst='sudo systemctl start'
 alias spacman='sudo pacman'
 alias fuck='sudo pacman -Rsnv'
 alias get='yaourt --noconfirm'
@@ -8,6 +13,9 @@ alias svim='sudo vim'
 alias seditor='sudo update-alternatives --config editor'
 alias mnt='sudo mount'
 alias doch='sudo $(fc -ln -1)'
+alias killSubl="kill -15 $(ps ax | grep /bin/subl | grep -v 'grep' | grep -oE '^\s*[0-9]+')"
+alias blueoff='sudo systemctl stop bluetooth'
+alias blueon='sudo systemctl start bluetooth'
 
 # user aliases
 alias lh='ls -a -l -h'
@@ -16,6 +24,10 @@ alias wtf='dmesg -eHwT'
 alias lok='i3lock -c ffff00 -n'
 alias hist='fc -li'
 alias spaceleft='df -h'
+alias bgblack='DISPLAY=:0 feh --bg-fill ~/Bilder/BlackScreen.png'
+
+#wakeOnLan aliases
+alias udoup='sudo etherwake 00:30:48:30:75:6A'
 
 # git aliases
 alias gitignored='git ls-files -v | grep "^[[:lower:]]"'
@@ -24,7 +36,7 @@ alias gdf='git diff'
 alias glg='git lg'
 alias gpl='git pull'
 alias gco='git commit -m'
-alias grm='echo git remote prune origin && git remote prune origin && echo git branch -d $(git branch --merged) && git branch -d $(git branch --merged)'
+alias grm='echo git remote prune origin && git remote prune origin && echo git branch -d $(git branch --merged | grep -v "* release2") && git branch -d $(git branch --merged | grep -v "* release2")'
 alias gre='git rev-parse HEAD'
 alias grebr='git rev-parse --abbrev-ref HEAD'
 alias creator='git for-each-ref --format=" %(authorname) %09 %(refname)"'
@@ -34,4 +46,9 @@ alias allBranchT='git branch -r > ../../aktiveBranches.txt'
 alias glg='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias gcLastTag='git checkout $(git tag -l --sort -version:refname | head -n 1)'
 
+#alias test='echo $fg_bold[green] "bla"'
+
+function testfkt() {
+    echo $fg_bold[green] 'test21'
+}
 #source $(which virtualenvwrapper.sh)
