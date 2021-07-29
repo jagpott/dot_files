@@ -29,13 +29,37 @@ bindsym $mod+shift+a scratchpad show
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym XF86Launch1 exec i3-sensible-terminal
 bindsym $mod+Return exec termite
-bindsym XF86Launch1 exec termite
+#bindsym XF86Launch1 exec termite
 bindsym $mod+Shift+Return exec thunar
-bindsym Shift+XF86Launch1 exec thunar
+#bindsym Shift+XF86Launch1 exec thunar
 #lock screen
-bindsym $mod+BackSpace exec i3lock -c ffff00 -i ~/Bilder/hintergrund.png -n
+bindsym $mod+BackSpace exec i3lock -c ffff00 -i ~/Bilder/cobra-427.png -n
 # kill focused window
 bindsym $mod+q kill
+
+## start applications
+# start chromium
+bindsym $mod+Control+p exec pavucontrol
+# start telegram-desktop
+bindsym $mod+Control+t exec telegram-desktop
+# start teams
+bindsym $mod+Control+shift+t exec teams
+# start zoom
+bindsym $mod+Control+z exec zoom
+# start slack
+bindsym $mod+Control+k exec slack
+# start chromium
+bindsym $mod+Control+c exec chromium
+# start cheese
+bindsym $mod+Control+shift+c exec cheese
+# start thunderbird
+bindsym $mod+Control+b exec thunderbird
+# start sublime-text-3
+bindsym $mod+Control+s exec subl
+# start keepass
+bindsym $mod+Control+shift+p exec keepass2
+# start firefox
+bindsym $mod+Control+f exec firefox
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -137,9 +161,9 @@ mode "resize" {
         bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym 113 resize shrink width 10 px or 10 ppt
-        bindsym 116 resize grow height 10 px or 10 ppt
-        bindsym 111 resize shrink height 10 px or 10 ppt
+        #bindsym 113 resize shrink width 10 px or 10 ppt
+        #bindsym 116 resize grow height 10 px or 10 ppt
+        #bindsym 111 resize shrink height 10 px or 10 ppt
      #   bindsym 114 resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
@@ -173,7 +197,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 #bindsym XF86Display exec touchpadtoggle
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-set $i3exit --no-startup-id /home/julian/.bin/i3exit
+#set $i3exit --no-startup-id /home/jan/.bin/i3exit
 mode "$mode_system" {
     bindsym l exec $i3exit lock, mode "default"
     bindsym e exec $i3exit logout, mode "default"
@@ -187,41 +211,36 @@ bindsym $mod+Escape mode "$mode_system"
 #bindsym 38 exec $i3exit lock
 
 
-set $mode_soundboard (1)Leb Deinen Traum (2)No God Please (3)Ich pitch Projekte (4)Cricket Sound (5)leck mich am aaaaarsch (6)Tasty Burger (7)Thats what she said (8)my joke (9)lets get it on (10)turntables
-mode "$mode_soundboard" {
-    bindsym 2 exec play /home/julian/Musik/buttons/no.mp3
-    bindsym 1 exec play /home/julian/Musik/buttons/digimon.mp3
-    bindsym 3 exec play /home/julian/Musik/buttons/projekte.mp3
-    bindsym 4 exec play /home/julian/Musik/buttons/cricket.mp3
-    bindsym 5 exec play /home/julian/Musik/buttons/leckmich.mp3
-    bindsym 6 exec play /home/julian/Musik/buttons/burger.mp3
-    bindsym 7 exec play /home/julian/Musik/buttons/twss.mp3
-    bindsym 8 exec play /home/julian/Musik/buttons/joke.mp3
-    bindsym 9 exec play /home/julian/Musik/buttons/getiton.mp3
-    bindsym 0 exec play /home/julian/Musik/buttons/turntables.mp3
-    bindsym Escape exec killall play
-    bindsym XF86PowerOff mode "default"
-
-    #volume
-    bindsym XF86AudioMute        exec pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && killall -USR1 i3status 
-     
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5% && killall -USR1 i3status
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5% && killall -USR1 i3status
-    bindsym XF86AudioMicMute     exec amixer -c 0 set Capture toggle 
-
-    #brightness
-    bindsym XF86MonBrightnessUp   exec xbacklight -inc 10
-    bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
-    
-    bindsym Return mode "$mode_soundboard2"
-}
-bindsym XF86PowerOff mode "$mode_soundboard"
-set $mode_soundboard2 (1)facebook ping
-mode "$mode_soundboard2" {
-        bindsym 1 exec play /home/julian/Musik/buttons/notifications/facebook.mp3
-        bindsym XF86PowerOff mode "default" 
-}
+#set $mode_soundboard (1)Leb Deinen Traum (2)No God Please (3)Ich pitch Projekte (4)Cricket Sound (5)leck mich am aaaaarsch (6)Tasty Burger (7)Thats what she said (8)my joke (9)lets get it on (10)turntables
+#mode "$mode_soundboard" {
+#    bindsym 2 exec play /home/jan/Musik/buttons/no.mp3
+#    bindsym 1 exec play /home/jan/Musik/buttons/digimon.mp3
+#    bindsym 3 exec play /home/jan/Musik/buttons/projekte.mp3
+#    bindsym 4 exec play /home/jan/Musik/buttons/cricket.mp3
+#    bindsym 5 exec play /home/jan/Musik/buttons/leckmich.mp3
+#    bindsym 6 exec play /home/jan/Musik/buttons/burger.mp3
+#    bindsym 7 exec play /home/jan/Musik/buttons/twss.mp3
+#    bindsym 8 exec play /home/jan/Musik/buttons/joke.mp3
+#    bindsym 9 exec play /home/jan/Musik/buttons/getiton.mp3
+#    bindsym 0 exec play /home/jan/Musik/buttons/turntables.mp3
+#    bindsym Escape exec killall play
+#    bindsym XF86PowerOff mode "default"
+#
+#    #volume
+#    bindsym XF86AudioMute        exec pactl set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo toggle && killall -USR1 i3status 
+#     
+#    bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -5% && killall -USR1 i3status
+#    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo +5% && killall -USR1 i3status
+#    bindsym XF86AudioMicMute     exec amixer -c 0 set Capture toggle 
+#
+#    bindsym Return mode "$mode_soundboard2"
+#}
+#bindsym XF86PowerOff mode "$mode_soundboard"
+#set $mode_soundboard2 (1)facebook ping
+#mode "$mode_soundboard2" {
+##        bindsym 1 exec play /home/jan/Musik/buttons/notifications/facebook.mp3
+#        bindsym XF86PowerOff mode "default" 
+#}
 
 bindsym XF86WWW exec $BROWSER
 
@@ -248,39 +267,44 @@ bar {
 }
 
 #assign programs to certain worksapce
-assign [class="^Chromium$"] 1: www
-assign [class="^Thunderbird$"] 2: mail
-assign [class="^Subl3$"] 3: dev
-assign [class="^Pidgin$"] 9: tele
-assign [class="^Telegram$"] 9: tele
-assign [class="^Skype$"] 9: tele
-assign [class="^Spotify$"] 9: tele
-for_window [class="^Chromium$" instance="^Download$"] floating enable
-assign [class="^Nitrotasks$"] 0: todo
+#assign [class="^Chromium$"] 1: www
+#assign [class="^Thunderbird$"] 2: mail
+#assign [class="^Subl3$"] 3: dev
+#assign [class="^Netbeans$"] 3: dev
+#assign [class="^Telegram-desktop$"] 9: tele
+#assign [class="^Teams$"] 9: tele
+#assign [class="^Slack$"] 9: tele
+#assign [class="^Zoom$"] 9: tele
+#assign [class="^Spotify$"] 9: tele
+#for_window [class="^Chromium$" instance="^Download$"] floating enable
+#assign [class="^Nitrotasks$"] 0: todo
 
 #autostart
-exec --no-startup-id termite
-exec --no-startup-id nitrotasks
-exec --no-startup-id chromium
-exec --no-startup-id thunderbird
-exec --no-startup-id subl3
-exec --no-startup-id /usr/libexec/xscreensaver-autostart
-exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
-exec --no-startup-id redshift -t 3500:3500
+#exec --no-startup-id termite
+#exec --no-startup-id nitrotasks
+#exec --no-startup-id chromium
+#exec --no-startup-id thunderbird
+#exec --no-startup-id subl
+#exec --no-startup-id /usr/libexec/xscreensaver-autostart
+#exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
+#exec --no-startup-id redshift -t 3500:3500
 
 #startup for multiple monitor @work
-exec --no-startup-id xrandr --addmode HDMI1 1920x1080 --addmode DP2 1920x1080
-exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate left
-exec --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080 --pos 1080x840 --rotate normal
-exec --no-startup-id xrandr --output DP2 --mode 1920x1080 --pos 3000x840 --rotate normal
+exec --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+#exec --no-startup-id xrandr --addmode HDMI1 1920x1080 --addmode DP2 1920x1080
+# rotateScreen
+#exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate left
+#exec --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080 --pos 1080x840 --rotate normal
+#exec --no-startup-id xrandr --output DP2 --mode 1920x1080 --pos 3000x840 --rotate normal
+#normScreen
+#exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal
+#exec --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+#exec --no-startup-id xrandr --output DP2 --mode 1920x1080 --pos 3840x0 --rotate normal
 
 workspace "0: todo" output eDP1
 workspace "1: www" output eDP1
 workspace "2: mail" output eDP1
 workspace "3: dev" output DP2
-workspace 4 output HDMI1
 workspace "9: tele" output DP2
 
-new_window none
-
-gaps inner 10
+gaps inner 5
